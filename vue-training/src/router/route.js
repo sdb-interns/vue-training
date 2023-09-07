@@ -1,24 +1,31 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../components/Home.vue";
-import Answer from "../components/name_card/Answer.vue";
-import NameCard from "../components/name_card/NameCard.vue";
+import Home from "../pages/Home.vue";
+import Index from "../pages/Index.vue";
+import Practice01 from "../components/Practice01.vue";
+import Practice02 from "../components/Practice02.vue";
 
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/name_card",
-    name: "NameCard",
-    component: NameCard
-  },
-  {
-    path: "/name_card/answer",
-    name: "Answer",
-    component: Answer
+    component: Index,
+    children: [
+      {
+        path: "",
+        name: "Home",
+        component: Home,
+      },
+      {
+        path: "Practice01",
+        name: "Practice01",
+        component: Practice01,
+      },
+      {
+        path: "Practice02",
+        name: "Practice02",
+        component: Practice02,
+      }
+    ]
   },
 ];
 
